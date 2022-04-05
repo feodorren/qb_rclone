@@ -9,7 +9,7 @@ https://blog.ba7lcy.com/windows-xia-shi-yong-sh-jiao-ben-yi-qbittorrent-rclone-z
 https://hostloc.com/thread-639215-1-1.html
 
 
-其它参考：
+## 其它参考：
 
 https://hostloc.com/thread-612238-1-1.html
 https://p3terx.com/archives/offline-download-of-onedrive-gdrive.html
@@ -23,7 +23,7 @@ putty, vs code, bt.cn, docker.
 
 ## 安装
 
-# 安装jq
+## 安装jq
 
 debian & linux
 
@@ -34,7 +34,7 @@ centos 下
 yum install -y jq
 
 
-# 安装qbittorrent
+## 安装qbittorrent
 https://hub.docker.com/r/linuxserver/qbittorrent
 
 特别说明：本人才疏学浅，无法解决某些专业问题。因此指定/downloads目录就在根目录下，防止产生绝对地址引用错误问题。
@@ -63,7 +63,7 @@ Uploaded,
 Not_upload
 
 
-# 安装rclone
+## 安装rclone
 
 a. 请自行获取google drive api 下的ID  和 secret
 
@@ -93,7 +93,7 @@ rclone authorize "drive" "xxxxxxxxxxxxxxxxxxx此处省略4行"
 至此reclone配置完毕。
 
 
-# 配置qb_auto_reclone.sh
+## 配置qb_auto_reclone.sh
 
 nano /root/qb_auto_reclone.sh
 
@@ -123,7 +123,7 @@ chmod 777 qb_auto_rclone.sh
 bash qb_auto_rclone.sh  #测试
 
 
-# 安装bt.cn面板
+## 安装bt.cn面板
 
 wget -O install.sh http://download.bt.cn/install/install-ubuntu_6.0.sh && bash install.sh
 
@@ -132,7 +132,7 @@ wget -O install.sh http://download.bt.cn/install/install-ubuntu_6.0.sh && bash i
 bash qb_auto_rclone.sh
 
 
-# 使用
+## 使用
 在qbittorren UI中，将想上传的种子右键标记 Wait_to_upload, 自动命令将会每分钟运行一次将该标记的文件上传至rclone所新建的googledrive1盘里。
 
 
