@@ -4,13 +4,19 @@ A personal testing record.
 
 ##特别感谢：
 
+https://blog.ba7lcy.com/windows-xia-shi-yong-sh-jiao-ben-yi-qbittorrent-rclone-zi-dong-shang-chuan-jiao-ben-wei-li/
 
 https://hostloc.com/thread-639215-1-1.html
 
+
 其它参考：
+
+https://hostloc.com/thread-612238-1-1.html
+https://p3terx.com/archives/offline-download-of-onedrive-gdrive.html
 
 
 以及感谢其它未提及人员对我的帮助！
+
 
 ##准备工作、搭建环境及可能用到的工具。
 putty, vs code, bt.cn, docker.
