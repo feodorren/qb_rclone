@@ -1,5 +1,4 @@
 # qb_rclone
-A personal testing record.
 本文只是记录了一次搭建qBittorrent并且通过打标签形式，经由rclone上传至GoogleDrive（OneDrive同理）的测试。
 
 ## 特别感谢
