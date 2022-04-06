@@ -26,11 +26,11 @@ putty, vs code, bt.cn, docker.
 
 debian & linux
 
-apt-get install -y jq
+  `apt-get install -y jq`
 
 centos 下
 
-yum install -y jq
+  `yum install -y jq`
 
 
 ## 安装qbittorrent
