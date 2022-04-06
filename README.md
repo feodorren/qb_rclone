@@ -26,11 +26,15 @@ putty, vs code, bt.cn, docker.
 
 debian & linux
 
-  `apt-get install -y jq`
+  ```
+  apt-get install -y jq
+  ```
 
 centos 下
 
-  `yum install -y jq`
+  ```
+  yum install -y jq
+  ```
 
 
 ## 安装qbittorrent
@@ -56,12 +60,12 @@ https://hub.docker.com/r/linuxserver/qbittorrent
 如果是PT玩家，可以自行关闭DHT。
 
 在左侧边栏右键标签，添加以下：
-`
+```
   Wait_to_upload,
   Uploading,
   Uploaded,
   Not_upload
-`
+```
 
 
 ## 安装rclone
@@ -73,7 +77,9 @@ a. 请自行获取google drive api 下的ID  和 secret
 
 
 b. debian 系统以下命令
-  `curl https://rclone.org/install.sh | sudo bash`
+  ```
+    curl https://rclone.org/install.sh | sudo bash
+  ```
 
   安装完毕后，输入rclone config进行配置
   参考https://rclone.org/drive/ 的Configuration 章节
@@ -85,9 +91,13 @@ c. 远程获取token
 
   打开cmd面板
 
-  `cd c:/Users/Administrator/Desktop/reclone文件夹`   #自行修改
+  ```
+    cd c:/Users/Administrator/Desktop/reclone文件夹
+  ```   
 
-  `rclone authorize "drive" "xxxxxxxxxxxxxxxxxxx此处省略4行"`
+  ```
+    rclone authorize "drive" "xxxxxxxxxxxxxxxxxxx此处省略4行"
+  ```
 
   生成token后复制到debian命令行界面 。
 
@@ -96,7 +106,9 @@ c. 远程获取token
 
 ## 配置qb_auto_reclone.sh
 
-`nano /root/qb_auto_reclone.sh`
+```
+  nano /root/qb_auto_reclone.sh
+```
 
 下载库中的qb_auto_reclone.sh，然后用vs code 打开，根据自己的配置修改以下内容后，全选复制整个文档内容。
 
@@ -112,22 +124,32 @@ c. 远程获取token
 ```
 返回nano界面复制完毕，ctrl + o 保存, enter 确认名称, ctrl + x 退出。
 
-`chmod 777 qb_auto_rclone.sh`
+```
+  chmod 777 qb_auto_rclone.sh
+```
 
-`bash qb_auto_rclone.sh`  #测试
+```
+  bash qb_auto_rclone.sh
+```
 
 
 ## 安装bt.cn面板  或者使用crond定时即可。
 
-`wget -O install.sh http://download.bt.cn/install/install-ubuntu_6.0.sh && bash install.sh`
+```
+  wget -O install.sh http://download.bt.cn/install/install-ubuntu_6.0.sh && bash install.sh
+ ```
 
 安装完毕登陆后，定时计划新建 ，每一分钟运行
 
-`bash qb_auto_rclone.sh`
+```
+  bash qb_auto_rclone.sh
+```
 
 使用crond计划任务，定时1分钟一次执行该sh文件
 
-`*/1 * * * * bash qb_auto_rclone.sh`   
+```
+  */1 * * * * bash qb_auto_rclone.sh
+```   
 
 ## 使用
 在qbittorren UI中，将想上传的种子右键标记 Wait_to_upload, 自动命令将会每分钟运行一次将该标记的文件上传至rclone所新建的googledrive1盘里。
