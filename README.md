@@ -122,7 +122,7 @@ c. 远程获取token
   from_dc_tag="/Upload" # 改：上传后的相对根目录，可为空
   rclone_parallel="32" # rclone上传线程 默认4
 ```
-返回nano界面复制完毕，ctrl + o 保存, enter 确认名称, ctrl + x 退出。
+返回nano界面粘贴完毕，ctrl + o 保存, enter 确认名称, ctrl + x 退出。
 
 ```
   chmod 777 qb_auto_rclone.sh
