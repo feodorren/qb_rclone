@@ -46,7 +46,7 @@ https://hub.docker.com/r/linuxserver/qbittorrent
     --name=qbittorrent \
     -e PUID=1000 \
     -e PGID=1000 \
-    -e TZ=Europe/London \
+    -e TZ=Asia/Shanghai \
     -e WEBUI_PORT=8080 \
     -p 8080:8080 \
     -p 6881:6881 \
