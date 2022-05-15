@@ -38,9 +38,49 @@ centos 下
 
 
 ## 安装qbittorrent
-https://hub.docker.com/r/linuxserver/qbittorrent
 
-特别说明：本人才疏学浅，无法解决某些专业问题。因此指定/downloads目录就在根目录下，防止产生绝对地址引用错误问题。
+https://github.com/userdocs/qbittorrent-nox-static/releases，选择一下适合自己电脑的版本。用ssh登录到debian，执行以下命令
+
+下载安装。我的电脑是x86的，所以选择x86_64-qbittorrent-nox：
+```wget -qO /usr/local/bin/x86_64-qbittorrent-nox https://github.com/userdocs/qbittorrent-nox-static/releases/download/release-4.4.2_v1.2.15/x86_64-qbittorrent-nox
+chmod 700 /usr/local/bin/x86_64-qbittorrent-nox
+```
+
+把二制文件放在bin目录下面，给二进制文件700权限
+
+给qBittorrent编写进程守护文件，让其开机启动，也可以手动让程序停止或开始。
+
+输入，然后回车，如果没有nano命令，用vi也可以。注意这里用了简写qbt的名字，原名字太长，影响输入：
+
+```nano /etc/systemd/system/qbt.service
+```
+
+然后添加如下内容：
+```[Unit]
+Description=qBittorrent Service
+After=network.target nss-lookup.target
+
+[Service]
+UMask=000
+ExecStart=/usr/local/bin/x86_64-qbittorrent-nox --profile=/usr/local/etc
+
+[Install]
+
+WantedBy=multi-user.target
+```
+Ctrl+O 保存，Enter保存文件名，Ctrl+X退出nano编辑器。
+
+请注意：–profile=/usr/local/etc这个选项，表示qBittorrent的配置目录，如果不写，就是在当前用户的主目录，例如root目录下面。我建议按上面的选项填写，这样规范一些。
+
+启动关闭命令：
+```systemctl enable qbt   #开机启动，第一次必须要执行此命令
+systemctl start qbt  #启动
+systemctl stop qbt  #停止
+systemctl status qbt  #软件运行状态查询
+```
+/// 以下docker版本  仅供参考 https://hub.docker.com/r/linuxserver/qbittorrent
+
+/// 特别说明：本人才疏学浅，无法解决某些专业问题。因此指定/downloads目录就在根目录下，防止产生绝对地址引用错误问题。
 ```shell
   docker run -d \
     --name=qbittorrent \
@@ -56,7 +96,12 @@ https://hub.docker.com/r/linuxserver/qbittorrent
     --restart unless-stopped \
     lscr.io/linuxserver/qbittorrent
 ```
-安装完毕后可以在浏览器打开 xxx.xxx.xxx.xxx:8080 访问UI。
+
+到目前为止，qBittorrent就算安装成功了，打开浏览器，输入：IP:8080，就可以打开qBittorrent的网页界面了。
+
+用户名：admin
+密码：adminadmin
+
 如果是PT玩家，可以自行关闭DHT。
 
 在左侧边栏右键标签，添加以下：
