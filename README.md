@@ -39,10 +39,11 @@ centos 下
 
 ## 安装qbittorrent
 
-https://github.com/userdocs/qbittorrent-nox-static/releases，选择一下适合自己电脑的版本。用ssh登录到debian，执行以下命令
+https://github.com/userdocs/qbittorrent-nox-static/releases 选择一下适合自己电脑的版本。用ssh登录到debian，执行以下命令
 
 下载安装。我的电脑是x86的，所以选择x86_64-qbittorrent-nox：
-```wget -qO /usr/local/bin/x86_64-qbittorrent-nox https://github.com/userdocs/qbittorrent-nox-static/releases/download/release-4.4.2_v1.2.15/x86_64-qbittorrent-nox
+```
+wget -qO /usr/local/bin/x86_64-qbittorrent-nox https://github.com/userdocs/qbittorrent-nox-static/releases/download/release-4.4.2_v2.0.6/x86_64-qbittorrent-nox
 chmod 700 /usr/local/bin/x86_64-qbittorrent-nox
 ```
 
@@ -52,7 +53,8 @@ chmod 700 /usr/local/bin/x86_64-qbittorrent-nox
 
 输入，然后回车，如果没有nano命令，用vi也可以。注意这里用了简写qbt的名字，原名字太长，影响输入：
 
-```nano /etc/systemd/system/qbt.service
+```
+nano /etc/systemd/system/qbt.service
 ```
 
 然后添加如下内容：
