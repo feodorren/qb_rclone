@@ -75,7 +75,8 @@ Ctrl+O 保存，Enter保存文件名，Ctrl+X退出nano编辑器。
 请注意：–profile=/usr/local/etc这个选项，表示qBittorrent的配置目录，如果不写，就是在当前用户的主目录，例如root目录下面。我建议按上面的选项填写，这样规范一些。
 
 启动关闭命令：
-```systemctl enable qbt   #开机启动，第一次必须要执行此命令
+```
+systemctl enable qbt   #开机启动，第一次必须要执行此命令
 systemctl start qbt  #启动
 systemctl stop qbt  #停止
 systemctl status qbt  #软件运行状态查询
