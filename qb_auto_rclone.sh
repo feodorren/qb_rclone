@@ -165,7 +165,7 @@ function doUpload(){
 		save_path="/${save_path}"
     fi
     
-    torrent_path="${save_path}${torrent_name}" # 这里就是他的本地实际路径，尝试将这里上传上去。注意qb中save_path最后是否有“ / ”， 如果没有，需要在此处添加 /
+    torrent_path="${save_path}/${torrent_name}" # 这里就是他的本地实际路径，尝试将这里上传上去。注意qb中save_path最后是否有“ / ”， 如果没有，需要在此处添加 /
 
     can_go_lock
     if [[ ${noLock} == "1" ]] # 厕所门能开
