@@ -39,16 +39,15 @@ centos 下
 
 ## 1.2 安装qbittorrent
 
-https://github.com/userdocs/qbittorrent-nox-static/releases 选择一下适合自己电脑的版本。用ssh登录到debian，执行以下命令
-
-下载安装。我的电脑是x86的，所以选择x86_64-qbittorrent-nox：
+https://github.com/userdocs/qbittorrent-nox-static/releases 选择一下适合自己主机的版本。
 ```
 wget -qO /usr/local/bin/x86_64-qbittorrent-nox https://github.com/userdocs/qbittorrent-nox-static/releases/download/release-4.4.2_v2.0.6/x86_64-qbittorrent-nox
-chmod 700 /usr/local/bin/x86_64-qbittorrent-nox
 ```
 
 把二制文件放在bin目录下面，给二进制文件700权限
-
+```
+chmod 700 /usr/local/bin/x86_64-qbittorrent-nox
+```
 给qBittorrent编写进程守护文件，让其开机启动，也可以手动让程序停止或开始。
 
 输入，然后回车，如果没有nano命令，用vi也可以。注意这里用了简写qbt的名字，原名字太长，影响输入：
