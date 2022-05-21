@@ -81,24 +81,6 @@ systemctl start qbt  #启动
 systemctl stop qbt  #停止
 systemctl status qbt  #软件运行状态查询
 ```
-/// 以下docker版本  仅供参考 https://hub.docker.com/r/linuxserver/qbittorrent
-
-/// 特别说明：本人才疏学浅，无法解决某些专业问题。因此指定/downloads目录就在根目录下，防止产生绝对地址引用错误问题。
-```shell
-  docker run -d \
-    --name=qbittorrent \
-    -e PUID=1000 \
-    -e PGID=1000 \
-    -e TZ=Asia/Shanghai \
-    -e WEBUI_PORT=8080 \
-    -p 8080:8080 \
-    -p 6881:6881 \
-    -p 6881:6881/udp \
-    -v /path/to/appdata/config:/config \
-    -v /downloads:/downloads \
-    --restart unless-stopped \
-    lscr.io/linuxserver/qbittorrent
-```
 
 到目前为止，qBittorrent就算安装成功了，打开浏览器，输入：IP:8080，就可以打开qBittorrent的网页界面了。
 
@@ -124,7 +106,7 @@ a. 请自行获取google drive api 下的ID  和 secret
   参考Making your own client_id章节
 
 
-b. debian 系统以下命令
+b. debian 系统下的命令
   ```
     curl https://rclone.org/install.sh | sudo bash
   ```
@@ -152,15 +134,18 @@ c. 远程获取token
   至此reclone配置完毕。
 
 
-## 配置qb_auto_reclone.sh
+## 下载qb_auto_rclone.sh到主机
 
 ```
-  nano /root/qb_auto_reclone.sh
+  wget https://raw.githubusercontent.com/feodorren/qb_rclone/main/qb_auto_rclone.sh
 ```
+## 编辑qb_auto_rclone.sh文件 
+```
+nano qb_auto_rclone.sh
+```
+修改以下内容
 
-下载库中的qb_auto_reclone.sh，然后用vs code 打开，根据自己的配置修改以下内容后，全选复制整个文档内容。
-
-```shell
+```
   qb_version="4.4.2" # 改：改为你的实际qb的版本号
   qb_username="admin" # 改：该为你的qb登录用户名
   qb_password="adminadmin" # 改：改为你qb登录的密码
@@ -170,7 +155,7 @@ c. 远程获取token
   from_dc_tag="/Upload" # 改：上传后的相对根目录，可为空
   rclone_parallel="32" # rclone上传线程 默认4
 ```
-返回nano界面粘贴完毕，ctrl + o 保存, enter 确认名称, ctrl + x 退出。
+修改 完毕，ctrl + o 保存, enter 确认名称, ctrl + x 退出。
 
 ```
   chmod 777 qb_auto_rclone.sh
