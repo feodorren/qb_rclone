@@ -1,7 +1,7 @@
 # qb_rclone
 本文只是记录了一次搭建qBittorrent并且通过打标签形式，经由rclone上传至GoogleDrive（OneDrive同理）的测试。
 
-## 特别感谢
+# 特别感谢
 
 https://blog.ba7lcy.com/windows-xia-shi-yong-sh-jiao-ben-yi-qbittorrent-rclone-zi-dong-shang-chuan-jiao-ben-wei-li/
 
@@ -17,12 +17,12 @@ https://p3terx.com/archives/offline-download-of-onedrive-gdrive.html
 以及感谢其它未提及人员对我的帮助！
 
 
-## 准备工作、搭建环境及可能用到的工具。
+# 0. 准备工作、搭建环境及可能用到的工具。
 putty, vs code, bt.cn, docker.
 
-## 安装
+# 1. 安装
 
-## 安装jq
+## 1.1 安装jq
 
 debian & linux
 
@@ -37,7 +37,7 @@ centos 下
   ```
 
 
-## 安装qbittorrent
+## 1.2 安装qbittorrent
 
 https://github.com/userdocs/qbittorrent-nox-static/releases 选择一下适合自己电脑的版本。用ssh登录到debian，执行以下命令
 
@@ -98,7 +98,7 @@ systemctl status qbt  #软件运行状态查询
 ```
 
 
-## 安装rclone
+## 1.3 安装rclone
 
 a. 请自行获取google drive api 下的ID  和 secret
 
@@ -134,12 +134,12 @@ c. 远程获取token
   至此reclone配置完毕。
 
 
-## 下载qb_auto_rclone.sh到主机
+## 1.4 配置自动上传至Google Drive脚本qb_auto_rclone.sh
 
 ```
   wget https://raw.githubusercontent.com/feodorren/qb_rclone/main/qb_auto_rclone.sh
 ```
-## 编辑qb_auto_rclone.sh文件 
+### 编辑qb_auto_rclone.sh文件 
 ```
 nano qb_auto_rclone.sh
 ```
@@ -166,7 +166,7 @@ nano qb_auto_rclone.sh
 ```
 
 
-## 安装bt.cn面板  或者使用crond定时即可。
+## 1.5 安装bt.cn面板或者使用crond定时即可。
 
 ```
   wget -O install.sh http://download.bt.cn/install/install-ubuntu_6.0.sh && bash install.sh
@@ -178,18 +178,18 @@ nano qb_auto_rclone.sh
   bash qb_auto_rclone.sh
 ```
 
-使用crond计划任务，定时1分钟一次执行该sh文件
+使用crond计划任务，定时2分钟一次执行该sh文件
 
 ```
-  */1 * * * * bash qb_auto_rclone.sh
+  */2 * * * * bash qb_auto_rclone.sh
 ```   
 
-## 使用
+# 2. 使用
 在qbittorren UI中，将想上传的种子右键标记 Wait_to_upload, 自动命令将会每分钟运行一次将该标记的文件上传至rclone所新建的googledrive1盘里。
 
 
 
-# 其它
+# 3. 其它
 感谢网上有很多大佬的文章可以参考研究，令人受益匪浅。
 
 
