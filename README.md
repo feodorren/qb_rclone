@@ -155,9 +155,10 @@ nano qb_auto_rclone.sh
   rclone_parallel="32" # rclone上传线程 默认4
 ```
 修改 完毕，ctrl + o 保存, enter 确认名称, ctrl + x 退出。
+给脚本添加可执行权限`chmod +x`。
 
 ```
-  chmod 777 qb_auto_rclone.sh
+  chmod +x qb_auto_rclone.sh
 ```
 
 ```
