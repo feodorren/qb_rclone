@@ -161,28 +161,18 @@ nano qb_auto_rclone.sh
   chmod +x qb_auto_rclone.sh
 ```
 
-```
-  bash qb_auto_rclone.sh
-```
 
+## 1.5 使用crond定时
 
-## 1.5 安装bt.cn面板或者使用crond定时即可。
+`crontab -e`打开编辑器
 
-```
-  wget -O install.sh http://download.bt.cn/install/install-ubuntu_6.0.sh && bash install.sh
- ```
-
-安装完毕登陆后，定时计划新建 ，每一分钟运行
+复制以下代码，设置定时2分钟一次执行该`qb_auto_rclone.sh`文件
 
 ```
-  bash qb_auto_rclone.sh
-```
-
-使用crond计划任务，定时2分钟一次执行该sh文件
-
-```
-  */2 * * * * bash qb_auto_rclone.sh
+*/2 * * * * bash qb_auto_rclone.sh
 ```   
+
+```crontab -l``` 查看现有定时任务。
 
 # 2. 使用
 在qbittorren UI中，将想上传的种子右键标记 Wait_to_upload, 自动命令将会每分钟运行一次将该标记的文件上传至rclone所新建的googledrive1盘里。
