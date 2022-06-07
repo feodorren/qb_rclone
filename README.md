@@ -18,7 +18,7 @@ https://p3terx.com/archives/offline-download-of-onedrive-gdrive.html
 
 
 # 0. 准备工作、搭建环境及可能用到的工具
-putty, bt.cn
+putty
 
 # 1. 安装
 
