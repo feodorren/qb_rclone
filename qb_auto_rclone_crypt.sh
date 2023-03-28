@@ -1,6 +1,6 @@
 #!/bin/sh
 
-qb_version="4.4.2" # 改：改为你的实际qb的版本号
+qb_version="4.5.2" # 改：改为你的实际qb的版本号
 qb_username="admin" # 改：该为你的qb登录用户名
 qb_password="adminadmin" # 改：改为你qb登录的密码
 qb_web_url="http://127.0.0.1:8080" # 查：改为qb的登录地址，一般可以不改
