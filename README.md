@@ -41,7 +41,7 @@ centos 下
 
 https://github.com/userdocs/qbittorrent-nox-static/releases 选择一下适合自己主机的版本。
 ```
-wget -qO /usr/local/bin/x86_64-qbittorrent-nox https://github.com/userdocs/qbittorrent-nox-static/releases/download/release-4.4.2_v2.0.6/x86_64-qbittorrent-nox
+wget -qO /usr/local/bin/x86_64-qbittorrent-nox https://github.com/userdocs/qbittorrent-nox-static/releases/download/release-4.5.2_v2.0.8/x86_64-qbittorrent-nox
 ```
 
 把二制文件放在bin目录下面，给二进制文件700权限
@@ -145,14 +145,14 @@ nano qb_auto_rclone.sh
 修改以下内容
 
 ```
-  qb_version="4.4.2" # 改：改为你的实际qb的版本号
+  qb_version="4.5.2" # 改：改为你的实际qb的版本号
   qb_username="admin" # 改：该为你的qb登录用户名
   qb_password="adminadmin" # 改：改为你qb登录的密码
   qb_web_url="http://127.0.0.1:8080" # 查：改为qb的登录地址，一般可以不改
   log_dir="/home/qbauto" # 改：改为你日志运行的路径
   rclone_dest="googledrive1:" # 运行rclone config查看name字段即可；格式就是"XX:"
   from_dc_tag="/Upload" # 改：上传后的相对根目录，可为空
-  rclone_parallel="32" # rclone上传线程 默认4
+  rclone_parallel="4" # rclone上传线程 默认4
 ```
 修改 完毕，ctrl + o 保存, enter 确认名称, ctrl + x 退出。
 给脚本添加可执行权限`chmod +x`。
